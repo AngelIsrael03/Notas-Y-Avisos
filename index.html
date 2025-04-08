@@ -1,1 +1,49 @@
 <!-- Estructura principal de la página web: frontend de notas y avisos -->
+<!-- index.html actualizado con addEventListener para evitar errores de inline JS -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas y Avisos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Avisos&Notas</h1>
+        <button class="button-comentario">Enviar comentario</button>
+    </nav>
+    <div class="main-container">
+        <div class="avisos-container">
+            <h2>Avisos</h2>
+            <button id="agregarAvisoBtn">Agregar Aviso</button>
+            <div id="agregarAvisoForm" style="display: none;">
+                <input type="date" id="fechaAviso" required>
+                <textarea id="mensajeAviso" placeholder="Escribe el aviso" required></textarea>
+                <button id="guardarAvisoBtn">Guardar Aviso</button>
+            </div>
+            <table>
+                <thead>
+                    <th>Fecha</th>
+                    <th>Aviso</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </thead>
+                <tbody id="avisos-table"></tbody>
+            </table>
+        </div>
+        <div class="notas-container">
+            <h2>Notas</h2>
+            <button id="agregarNotaBtn">Agregar Nota</button>
+            <div id="agregarNotaForm" style="display: none;">
+                <textarea id="contenidoNota" placeholder="Escribe la nota" required></textarea>
+                <button id="guardarNotaBtn">Guardar Nota</button>
+            </div>
+            <div class="notas-lista" id="notas-lista"></div>
+        </div>
+    </div>
+
+<script>
+// Mostrar formularios
+agregarAvisoBtn.onclick = () => agregarAvisoForm.style.display = 'block';
+agregarNotaBtn.onclick = () => agregarNotaForm.style.display = 'block';
