@@ -47,3 +47,57 @@
 // Mostrar formularios
 agregarAvisoBtn.onclick = () => agregarAvisoForm.style.display = 'block';
 agregarNotaBtn.onclick = () => agregarNotaForm.style.display = 'block';
+
+// Guardar aviso
+guardarAvisoBtn.onclick = () => {
+    const fecha = fechaAviso.value;
+    const mensaje = mensajeAviso.value;
+    fetch('/avisos', {
+        method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ fecha, mensaje })
+    })
+    .then(r => r.json())
+    .then(() => location.reload());
+};
+
+// Guardar nota
+guardarNotaBtn.onclick = () => {
+    const contenido = contenidoNota.value;
+    fetch('/notas', {
+        method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ contenido })
+    })
+    .then(r => r.json())
+    .then(() => location.reload());
+};
+
+// Cargar avisos
+fetch('/avisos')
+.then(r => r.json())
+.then(avisos => {
+    const tabla = document.getElementById('avisos-table');
+    avisos.forEach(aviso => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${aviso.fecha}</td>
+            <td>${aviso.mensaje}</td>
+            <td><button class="editar-aviso">Editar</button></td>
+            <td><button class="eliminar-aviso">Eliminar</button></td>`;
+        row.querySelector('.editar-aviso').addEventListener('click', () => {
+            const nuevoMensaje = prompt("Editar mensaje del aviso:", aviso.mensaje);
+            const nuevaFecha = prompt("Editar fecha del aviso (YYYY-MM-DD):", aviso.fecha);
+            if (nuevoMensaje && nuevaFecha) {
+                fetch(`/avisos/${aviso.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ mensaje: nuevoMensaje, fecha: nuevaFecha })
+                }).then(() => location.reload());
+            }
+        });
+        row.querySelector('.eliminar-aviso').addEventListener('click', () => {
+            fetch(`/avisos/${aviso.id}`, { method: 'DELETE' })
+                .then(() => location.reload());
+        });
+        tabla.appendChild(row);
+    });
+});
