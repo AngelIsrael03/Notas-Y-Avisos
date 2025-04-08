@@ -106,3 +106,112 @@ th {
     background-color: #31363F; /* Gris oscuro */
     color: #76ABAE; /* Verde azulado */
 }
+
+button {
+    background-color: #76ABAE; /* Verde azulado */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5e9c94; /* Color más oscuro del verde azulado */
+}
+
+/* Estilo para la sección de notas */
+.notas-container {
+    background-color: #31363F; /* Gris oscuro */
+    border-radius: 12px;
+    padding: 30px;
+    width: 48%;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.notas-container:hover {
+    transform: scale(1.02);
+}
+
+.notas-container h2 {
+    font-size: 22px;
+    color: #76ABAE; /* Verde azulado */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.notas-container button {
+    background-color: #76ABAE; /* Verde azulado */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.notas-container button:hover {
+    background-color: #5e9c94; /* Color más oscuro del verde azulado */
+}
+
+/* Lista de notas */
+.notas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card de cada nota */
+.nota-card {
+    background-color: #31363F; /* Gris oscuro */
+    border-left: 8px solid #76ABAE; /* Verde azulado */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nota-card:hover {
+    transform: scale(1.03);
+}
+
+.nota-card p {
+    margin: 0;
+    flex-grow: 1;
+    color: #EEEEEE; /* Texto claro */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Botones de las notas */
+.nota-card button {
+    background-color: #FF5733; /* Naranja vibrante para acciones */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.nota-card button:hover {
+    background-color: #E04E29; /* Naranja oscuro */
+}
+
+.nota-card button:first-of-type {
+    background-color: #76ABAE; /* Verde azulado */
+}
+
+.nota-card button:first-of-type:hover {
+    background-color: #5e9c94; /* Verde más oscuro */
+}
