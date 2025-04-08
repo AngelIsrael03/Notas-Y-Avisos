@@ -1,1 +1,108 @@
 /* Estilos visuales del frontend de notas y avisos */
+/* Reset de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global del body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #222831; /* Fondo oscuro */
+    color: #EEEEEE; /* Texto claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: #31363F; /* Gris oscuro */
+    color: #EEEEEE; /* Texto claro */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 2px solid #76ABAE; /* Borde delgado de color verde azulado */
+}
+
+.navbar h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.button-comentario {
+    background-color: #76ABAE; /* Verde azulado */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.button-comentario:hover {
+    background-color: #5e9c94; /* Color más oscuro del verde azulado */
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 30px;
+}
+
+/* Estilo para la sección de avisos */
+.avisos-container {
+    background-color: #31363F; /* Gris oscuro */
+    border-radius: 12px;
+    padding: 30px;
+    width: 48%;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.avisos-container:hover {
+    transform: scale(1.02);
+}
+
+.avisos-container h2 {
+    font-size: 22px;
+    color: #76ABAE; /* Verde azulado */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.avisos-container button {
+    background-color: #76ABAE; /* Verde azulado */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.avisos-container button:hover {
+    background-color: #5e9c94; /* Color más oscuro del verde azulado */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #555; /* Gris oscuro para los bordes */
+}
+
+th {
+    background-color: #31363F; /* Gris oscuro */
+    color: #76ABAE; /* Verde azulado */
+}
