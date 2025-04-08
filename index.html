@@ -101,3 +101,45 @@ fetch('/avisos')
         tabla.appendChild(row);
     });
 });
+
+// Cargar notas
+fetch('/notas')
+.then(r => r.json())
+.then(notas => {
+    const lista = document.getElementById('notas-lista');
+    notas.forEach(nota => {
+        const card = document.createElement('div');
+        card.classList.add('nota-card');
+
+        const texto = document.createElement('p');
+        texto.textContent = nota.contenido;
+
+        const btnEditar = document.createElement('button');
+        btnEditar.textContent = 'Editar';
+        btnEditar.addEventListener('click', () => {
+            const nuevo = prompt("Editar nota:", nota.contenido);
+            if (nuevo) {
+                fetch(`/notas/${nota.id}`, {
+                    method: 'PUT', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contenido: nuevo })
+                }).then(() => location.reload());
+            }
+        });
+
+        const btnEliminar = document.createElement('button');
+        btnEliminar.textContent = 'Eliminar';
+        btnEliminar.addEventListener('click', () => {
+            fetch(`/notas/${nota.id}`, { method: 'DELETE' })
+                .then(() => location.reload());
+        });
+
+        card.appendChild(texto);
+        card.appendChild(btnEditar);
+        card.appendChild(btnEliminar);
+
+        lista.appendChild(card);
+    });
+});
+</script>
+</body>
+</html>
